@@ -60,7 +60,7 @@ export default function Testimonials() {
   };
 
   return (
-    <section id="testimonials" className="py-20 bg-gradient-to-br from-green-50 via-white to-blue-50 scroll-mt-20">
+    <section id="testimonials" className="py-20 bg-gradient-to-br from-green-50/90 via-white/90 to-blue-50/90 scroll-mt-20">
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <ScrollReveal direction="up" className="text-center mb-16">

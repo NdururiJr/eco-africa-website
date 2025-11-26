@@ -66,7 +66,7 @@ const itemVariants = {
 
 export default function WhyChooseUs() {
   return (
-    <section id="why-us" className="py-20 bg-surface scroll-mt-20">
+    <section id="why-us" className="py-20 bg-surface/80 scroll-mt-20">
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <ScrollReveal direction="up" className="text-center mb-16">

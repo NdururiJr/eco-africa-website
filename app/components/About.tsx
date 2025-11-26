@@ -29,7 +29,7 @@ const highlights = [
 
 export default function About() {
   return (
-    <section id="about" className="py-20 bg-white scroll-mt-20">
+    <section id="about" className="py-20 bg-white/80 scroll-mt-20">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Content Side */}
