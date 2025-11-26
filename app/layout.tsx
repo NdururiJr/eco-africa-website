@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import BackgroundLogo from "./components/BackgroundLogo";
 
 export const metadata: Metadata = {
   title: "Eco Africa Industries Kenya | Premium Italian Laundry & Dry-Cleaning Machines",
@@ -23,8 +24,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
+        <BackgroundLogo />
         <Header />
-        <main className="min-h-screen">
+        <main className="min-h-screen relative z-10">
           {children}
         </main>
         <Footer />

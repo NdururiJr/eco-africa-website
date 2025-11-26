@@ -92,7 +92,7 @@ export default function Hero() {
               Get a Free Quote
             </Link>
             <a
-              href="https://wa.me/254700000000"
+              href="https://wa.me/254704585410"
               target="_blank"
               rel="noopener noreferrer"
               className="border-2 border-brand-green text-brand-green hover:bg-brand-green hover:text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 w-full sm:w-auto flex items-center justify-center gap-2"

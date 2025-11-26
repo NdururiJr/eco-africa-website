@@ -10,14 +10,14 @@ const contactInfo = [
   {
     icon: HiPhone,
     title: "Phone",
-    value: "+254 700 000 000",
-    href: "tel:+254700000000",
+    value: "0704 585410",
+    href: "tel:+254704585410",
   },
   {
     icon: FaWhatsapp,
     title: "WhatsApp",
-    value: "+254 700 000 000",
-    href: "https://wa.me/254700000000",
+    value: "0704 585410",
+    href: "https://wa.me/254704585410",
   },
   {
     icon: HiMail,

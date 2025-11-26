@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { HiMenu, HiX, HiPhone } from "react-icons/hi";
 
@@ -43,14 +42,8 @@ export default function Header() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="relative w-12 h-12 transition-transform duration-300 group-hover:scale-110">
-              <Image
-                src="/logo.png"
-                alt="Eco Africa Industries Kenya"
-                fill
-                className="object-contain"
-                priority
-              />
+            <div className="w-10 h-10 bg-gradient-to-br from-brand-green to-brand-blue rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+              <span className="text-white font-bold text-lg">EA</span>
             </div>
             <div className="flex flex-col">
               <span className="text-lg font-bold leading-tight">
@@ -76,11 +69,11 @@ export default function Header() {
           {/* CTA Button */}
           <div className="hidden md:flex items-center gap-4">
             <a
-              href="tel:+254700000000"
+              href="tel:+254704585410"
               className="flex items-center gap-2 text-brand-green font-semibold"
             >
               <HiPhone className="w-5 h-5" />
-              <span className="hidden lg:inline">+254 700 000 000</span>
+              <span className="hidden lg:inline">0704 585410</span>
             </a>
             <Link
               href="#contact"

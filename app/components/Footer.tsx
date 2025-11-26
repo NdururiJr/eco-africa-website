@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram, FaWhatsapp } from "react-icons/fa";
 import { HiMail, HiPhone, HiLocationMarker } from "react-icons/hi";
 
@@ -36,13 +35,8 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2 mb-6">
-              <div className="relative w-14 h-14">
-                <Image
-                  src="/logo.png"
-                  alt="Eco Africa Industries Kenya"
-                  fill
-                  className="object-contain"
-                />
+              <div className="w-12 h-12 bg-gradient-to-br from-brand-green to-brand-blue rounded-xl flex items-center justify-center">
+                <span className="text-white font-bold text-xl">EA</span>
               </div>
               <div className="flex flex-col">
                 <span className="text-xl font-bold leading-tight text-white">
@@ -122,10 +116,10 @@ export default function Footer() {
               <div className="flex items-center gap-3">
                 <HiPhone className="w-5 h-5 text-brand-green flex-shrink-0" />
                 <a
-                  href="tel:+254700000000"
+                  href="tel:+254704585410"
                   className="text-gray-400 hover:text-brand-green transition-colors duration-300 text-sm"
                 >
-                  +254 700 000 000
+                  0704 585410
                 </a>
               </div>
               <div className="flex items-center gap-3">
