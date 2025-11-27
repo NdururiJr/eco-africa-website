@@ -106,7 +106,7 @@ export default function About() {
                     className="object-cover"
                   />
                   {/* Dark overlay for text readability */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-brand-green/85 to-brand-blue/85" />
+                  <div className="absolute inset-0 bg-black/40" />
                 </div>
 
                 <div className="relative z-10">

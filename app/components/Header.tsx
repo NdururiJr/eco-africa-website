@@ -41,16 +41,13 @@ export default function Header() {
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 bg-gradient-to-br from-brand-green to-brand-blue rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-              <span className="text-white font-bold text-lg">EA</span>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-lg font-bold leading-tight">
-                <span className="text-brand-green">Eco Africa</span>
-              </span>
-              <span className="text-xs text-neutral -mt-1">Industries Kenya</span>
-            </div>
+          <Link href="/" className="group flex flex-col items-center transition-transform duration-300 hover:scale-105">
+            <span className="text-xl font-bold text-brand-green">
+              Eco Africa Industries
+            </span>
+            <span className="text-xl font-bold text-foreground group-hover:text-brand-blue transition-colors duration-300">
+              Kenya
+            </span>
           </Link>
 
           {/* Desktop Navigation */}

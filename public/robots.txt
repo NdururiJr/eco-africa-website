@@ -1,0 +1,11 @@
+# Eco Africa Industries Kenya
+# https://ecoafricaindustries.co.ke
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://ecoafricaindustries.co.ke/sitemap.xml
+
+# Disallow admin/api routes
+Disallow: /api/

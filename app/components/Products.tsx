@@ -1,33 +1,67 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { HiArrowRight } from "react-icons/hi";
 import ScrollReveal from "./ScrollReveal";
 
-const products = [
+interface Slide {
+  image: string;
+  description: string;
+}
+
+interface Product {
+  title: string;
+  slides: Slide[];
+  capacity: string;
+  features: string[];
+  color: string;
+}
+
+const products: Product[] = [
   {
     title: "Industrial Washing Machines",
-    description: "High-capacity washing machines designed for hotels, hospitals, and commercial laundries. Handles large volumes efficiently.",
+    slides: [
+      {
+        image: "/products/washing-machine.png",
+        description: "Washer-extractor with intuitive LCD interface, premium stainless steel construction, and fast fill/discharge system for maximum efficiency."
+      },
+      {
+        image: "/products/washing-machine-imesa.png",
+        description: "IMESA - The pinnacle of commercial laundry excellence. European precision engineering built for durability and superior performance."
+      },
+    ],
     capacity: "10-100 kg",
     features: ["Programmable cycles", "Low water consumption", "Stainless steel drum", "Energy efficient"],
-    image: "/products/washing-machine.png",
     color: "from-blue-500 to-cyan-400",
   },
   {
     title: "Commercial Dryers",
-    description: "Professional drying solutions that reduce drying time while protecting fabric quality. Perfect for high-turnover operations.",
+    slides: [
+      {
+        image: "/products/dryer.png",
+        description: "ADC commercial dryer engineered for rapid, energy-efficient drying. Delivers exceptional throughput with consistent, reliable performance."
+      },
+    ],
     capacity: "10-80 kg",
     features: ["Moisture sensors", "Reverse tumble", "Heat recovery", "Quick dry programs"],
-    image: "/products/dryer.png",
     color: "from-orange-500 to-amber-400",
   },
   {
     title: "Dry Cleaning Machines",
-    description: "State-of-the-art dry cleaning equipment using eco-friendly solvents. Ideal for delicate fabrics and specialty cleaning.",
+    slides: [
+      {
+        image: "/products/dry-cleaning.png",
+        description: "State-of-the-art dry cleaning equipment using eco-friendly solvents. Ideal for delicate fabrics."
+      },
+      {
+        image: "/products/washing-machine 3.png",
+        description: "REALSTAR dry-cleaning system - engineered for maximum efficiency with gentle, powerful cleaning that keeps garments looking their best."
+      },
+    ],
     capacity: "8-40 kg",
     features: ["Eco-friendly solvents", "Gentle on fabrics", "Self-cleaning", "Low emissions"],
-    image: "/products/dry-cleaning.png",
     color: "from-purple-500 to-violet-400",
   },
 ];
@@ -52,6 +86,116 @@ const itemVariants = {
     },
   },
 };
+
+function ProductCard({ product }: { product: Product }) {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const hasMultipleSlides = product.slides.length > 1;
+
+  useEffect(() => {
+    if (!hasMultipleSlides) return;
+
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % product.slides.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [hasMultipleSlides, product.slides.length]);
+
+  const currentSlideData = product.slides[currentSlide];
+
+  return (
+    <motion.div
+      variants={itemVariants}
+      whileHover={{ y: -10 }}
+      className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-border/50 group"
+    >
+      {/* Product Image Area */}
+      <div className="h-56 relative overflow-hidden bg-gray-100">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentSlide}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+            className="absolute inset-0"
+          >
+            <Image
+              src={currentSlideData.image}
+              alt={product.title}
+              fill
+              className="object-contain group-hover:scale-105 transition-transform duration-500"
+            />
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Capacity Badge */}
+        <div className="absolute bottom-3 left-3 z-10">
+          <span className={`text-sm font-medium text-white bg-gradient-to-r ${product.color} px-3 py-1 rounded-full shadow-lg`}>
+            {product.capacity}
+          </span>
+        </div>
+
+        {/* Dot Indicators */}
+        {hasMultipleSlides && (
+          <div className="absolute bottom-3 right-3 z-10 flex gap-1.5">
+            {product.slides.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setCurrentSlide(idx)}
+                className={`w-2 h-2 rounded-full transition-all ${
+                  idx === currentSlide
+                    ? "bg-white w-4"
+                    : "bg-white/50 hover:bg-white/75"
+                }`}
+                aria-label={`Go to slide ${idx + 1}`}
+              />
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* Content */}
+      <div className="p-6">
+        <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-brand-green transition-colors">
+          {product.title}
+        </h3>
+        <AnimatePresence mode="wait">
+          <motion.p
+            key={currentSlide}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.3 }}
+            className="text-neutral text-sm mb-4 leading-relaxed min-h-[60px]"
+          >
+            {currentSlideData.description}
+          </motion.p>
+        </AnimatePresence>
+
+        {/* Features */}
+        <div className="flex flex-wrap gap-2 mb-4">
+          {product.features.map((feature, idx) => (
+            <span
+              key={idx}
+              className="text-xs bg-surface text-neutral px-3 py-1 rounded-full"
+            >
+              {feature}
+            </span>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <a
+          href="#contact"
+          className="inline-flex items-center gap-2 text-brand-green font-semibold text-sm group-hover:gap-3 transition-all"
+        >
+          Get Quote <HiArrowRight className="w-4 h-4" />
+        </a>
+      </div>
+    </motion.div>
+  );
+}
 
 export default function Products() {
   return (
@@ -80,58 +224,7 @@ export default function Products() {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {products.map((product) => (
-            <motion.div
-              key={product.title}
-              variants={itemVariants}
-              whileHover={{ y: -10 }}
-              className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-border/50 group"
-            >
-              {/* Product Image Area */}
-              <div className="h-56 relative overflow-hidden bg-gray-100">
-                <Image
-                  src={product.image}
-                  alt={product.title}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                {/* Capacity Badge */}
-                <div className="absolute bottom-3 left-3">
-                  <span className={`text-sm font-medium text-white bg-gradient-to-r ${product.color} px-3 py-1 rounded-full shadow-lg`}>
-                    {product.capacity}
-                  </span>
-                </div>
-              </div>
-
-              {/* Content */}
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-brand-green transition-colors">
-                  {product.title}
-                </h3>
-                <p className="text-neutral text-sm mb-4 leading-relaxed">
-                  {product.description}
-                </p>
-
-                {/* Features */}
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {product.features.map((feature, idx) => (
-                    <span
-                      key={idx}
-                      className="text-xs bg-surface text-neutral px-3 py-1 rounded-full"
-                    >
-                      {feature}
-                    </span>
-                  ))}
-                </div>
-
-                {/* CTA */}
-                <a
-                  href="#contact"
-                  className="inline-flex items-center gap-2 text-brand-green font-semibold text-sm group-hover:gap-3 transition-all"
-                >
-                  Get Quote <HiArrowRight className="w-4 h-4" />
-                </a>
-              </div>
-            </motion.div>
+            <ProductCard key={product.title} product={product} />
           ))}
         </motion.div>
 

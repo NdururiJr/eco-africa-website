@@ -52,6 +52,7 @@ export default function Contact() {
     message: "",
   });
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -62,14 +63,38 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("loading");
+    setErrorMessage("");
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    setStatus("success");
-    setFormData({ name: "", email: "", phone: "", businessType: "", message: "" });
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-    // Reset status after 5 seconds
-    setTimeout(() => setStatus("idle"), 5000);
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to send message");
+      }
+
+      setStatus("success");
+      setFormData({ name: "", email: "", phone: "", businessType: "", message: "" });
+
+      // Reset status after 5 seconds
+      setTimeout(() => setStatus("idle"), 5000);
+    } catch (error) {
+      setStatus("error");
+      setErrorMessage(error instanceof Error ? error.message : "Something went wrong. Please try again.");
+
+      // Reset error status after 5 seconds
+      setTimeout(() => {
+        setStatus("idle");
+        setErrorMessage("");
+      }, 5000);
+    }
   };
 
   return (
@@ -219,6 +244,16 @@ export default function Contact() {
                     className="bg-green-50 border border-brand-green text-brand-green px-4 py-3 rounded-xl text-center"
                   >
                     Thank you for your inquiry! We'll get back to you within 24 hours.
+                  </motion.div>
+                )}
+
+                {status === "error" && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="bg-red-50 border border-red-500 text-red-600 px-4 py-3 rounded-xl text-center"
+                  >
+                    {errorMessage || "Failed to send message. Please try again."}
                   </motion.div>
                 )}
               </form>
