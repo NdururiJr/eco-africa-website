@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: "Eco Africa Industries Kenya | Premium Italian Laundry & Dry-Cleaning Machines",
   description: "Africa's trusted supplier of premium Italian laundry and dry-cleaning machines. Italian engineering meets exceptional value. Expert installation, unbeatable prices, and energy-efficient solutions.",
   keywords: "laundry machines Kenya, dry cleaning machines Africa, Italian laundry equipment, commercial washing machines, industrial laundry, Eco Africa Industries",
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://ecoafricaindustries.co.ke"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://ecoafricaindustries.com"),
   openGraph: {
     title: "Eco Africa Industries Kenya | Premium Italian Laundry Machines",
     description: "Africa's leading distributor of world-class Italian laundry and dry-cleaning machines.",
@@ -36,7 +36,7 @@ const jsonLd = {
   "@type": "LocalBusiness",
   name: "Eco Africa Industries Kenya",
   description: "Africa's trusted supplier of premium Italian laundry and dry-cleaning machines.",
-  url: "https://ecoafricaindustries.co.ke",
+  url: "https://ecoafricaindustries.com",
   telephone: "+254704585410",
   email: "info@ecoafricaindustries.co.ke",
   address: {
