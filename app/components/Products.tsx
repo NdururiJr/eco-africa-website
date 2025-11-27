@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { HiArrowRight } from "react-icons/hi";
 import ScrollReveal from "./ScrollReveal";
 
@@ -85,24 +86,17 @@ export default function Products() {
               whileHover={{ y: -10 }}
               className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-border/50 group"
             >
-              {/* Product Image/Icon Area */}
-              <div className={`h-48 bg-gradient-to-br ${product.color} p-6 flex items-center justify-center relative overflow-hidden`}>
-                {/* Decorative elements */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2" />
-                <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full translate-y-1/2 -translate-x-1/2" />
-
-                {/* Product icon placeholder */}
-                <div className="relative z-10 text-white text-center">
-                  <div className="w-20 h-20 mx-auto bg-white/20 rounded-2xl flex items-center justify-center mb-2">
-                    <span className="text-4xl">
-                      {product.title.includes("Washing") ? "🧺" :
-                       product.title.includes("Dryer") ? "💨" :
-                       product.title.includes("Dry Cleaning") ? "✨" :
-                       product.title.includes("Ironer") ? "👔" :
-                       product.title.includes("Extractor") ? "🔄" : "⚙️"}
-                    </span>
-                  </div>
-                  <span className="text-sm font-medium bg-white/20 px-3 py-1 rounded-full">
+              {/* Product Image Area */}
+              <div className="h-56 relative overflow-hidden bg-gray-100">
+                <Image
+                  src={product.image}
+                  alt={product.title}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                {/* Capacity Badge */}
+                <div className="absolute bottom-3 left-3">
+                  <span className={`text-sm font-medium text-white bg-gradient-to-r ${product.color} px-3 py-1 rounded-full shadow-lg`}>
                     {product.capacity}
                   </span>
                 </div>

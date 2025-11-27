@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { HiGlobe, HiCurrencyDollar, HiLightningBolt, HiUserGroup } from "react-icons/hi";
 import ScrollReveal from "./ScrollReveal";
 
@@ -95,11 +96,17 @@ export default function About() {
           <ScrollReveal direction="right" delay={0.2}>
             <div className="relative">
               {/* Main Card */}
-              <div className="bg-gradient-to-br from-brand-green to-brand-blue rounded-3xl p-8 text-white relative overflow-hidden">
-                {/* Background Pattern */}
-                <div className="absolute inset-0 opacity-10">
-                  <div className="absolute top-0 right-0 w-64 h-64 bg-white rounded-full -translate-y-1/2 translate-x-1/2" />
-                  <div className="absolute bottom-0 left-0 w-48 h-48 bg-white rounded-full translate-y-1/2 -translate-x-1/2" />
+              <div className="rounded-3xl p-8 text-white relative overflow-hidden">
+                {/* Background Image */}
+                <div className="absolute inset-0">
+                  <Image
+                    src="/products/store.png"
+                    alt="Eco Africa Store"
+                    fill
+                    className="object-cover"
+                  />
+                  {/* Dark overlay for text readability */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-brand-green/85 to-brand-blue/85" />
                 </div>
 
                 <div className="relative z-10">
