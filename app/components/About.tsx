@@ -53,7 +53,7 @@ export default function About() {
                 leading distributor of world-class Italian laundry and dry-cleaning machines.
                 We are committed to empowering businesses with the perfect blend of
                 <strong className="text-brand-green"> European engineering excellence</strong> and
-                <strong className="text-brand-blue"> African affordability</strong>.
+                <strong className="text-brand-blue"> exceptional value</strong>.
               </p>
             </ScrollReveal>
 

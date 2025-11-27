@@ -6,7 +6,7 @@ import BackgroundLogo from "./components/BackgroundLogo";
 
 export const metadata: Metadata = {
   title: "Eco Africa Industries Kenya | Premium Italian Laundry & Dry-Cleaning Machines",
-  description: "Africa's trusted supplier of premium Italian laundry and dry-cleaning machines. European engineering excellence meets African affordability. Expert installation, unbeatable prices, and energy-efficient solutions.",
+  description: "Africa's trusted supplier of premium Italian laundry and dry-cleaning machines. Italian engineering meets exceptional value. Expert installation, unbeatable prices, and energy-efficient solutions.",
   keywords: "laundry machines Kenya, dry cleaning machines Africa, Italian laundry equipment, commercial washing machines, industrial laundry, Eco Africa Industries",
   openGraph: {
     title: "Eco Africa Industries Kenya | Premium Italian Laundry Machines",

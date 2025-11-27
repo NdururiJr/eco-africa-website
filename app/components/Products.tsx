@@ -10,7 +10,7 @@ const products = [
     description: "High-capacity washing machines designed for hotels, hospitals, and commercial laundries. Handles large volumes efficiently.",
     capacity: "10-100 kg",
     features: ["Programmable cycles", "Low water consumption", "Stainless steel drum", "Energy efficient"],
-    image: "/washing-machine.svg",
+    image: "/products/washing-machine.png",
     color: "from-blue-500 to-cyan-400",
   },
   {
@@ -18,7 +18,7 @@ const products = [
     description: "Professional drying solutions that reduce drying time while protecting fabric quality. Perfect for high-turnover operations.",
     capacity: "10-80 kg",
     features: ["Moisture sensors", "Reverse tumble", "Heat recovery", "Quick dry programs"],
-    image: "/dryer.svg",
+    image: "/products/dryer.png",
     color: "from-orange-500 to-amber-400",
   },
   {
@@ -26,32 +26,8 @@ const products = [
     description: "State-of-the-art dry cleaning equipment using eco-friendly solvents. Ideal for delicate fabrics and specialty cleaning.",
     capacity: "8-40 kg",
     features: ["Eco-friendly solvents", "Gentle on fabrics", "Self-cleaning", "Low emissions"],
-    image: "/dry-cleaning.svg",
+    image: "/products/dry-cleaning.png",
     color: "from-purple-500 to-violet-400",
-  },
-  {
-    title: "Flatwork Ironers",
-    description: "Professional ironing systems for sheets, tablecloths, and linens. Achieve perfect finishes in record time.",
-    capacity: "Various sizes",
-    features: ["Speed control", "Temperature regulation", "Easy threading", "Compact design"],
-    image: "/ironer.svg",
-    color: "from-green-500 to-emerald-400",
-  },
-  {
-    title: "Washer Extractors",
-    description: "Combines washing and high-speed extraction in one unit. Reduces handling time and improves workflow efficiency.",
-    capacity: "15-60 kg",
-    features: ["High spin speed", "Programmable", "G-force extraction", "Soft mount option"],
-    image: "/washer-extractor.svg",
-    color: "from-pink-500 to-rose-400",
-  },
-  {
-    title: "Finishing Equipment",
-    description: "Complete finishing solutions including presses, folders, and stackers. Automate your post-wash processing.",
-    capacity: "Custom",
-    features: ["Automated folding", "Steam pressing", "Quality finish", "Labor saving"],
-    image: "/finishing.svg",
-    color: "from-teal-500 to-cyan-400",
   },
 ];
 

@@ -53,7 +53,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-lg md:text-xl text-neutral max-w-3xl mx-auto mb-8 leading-relaxed"
           >
-            European engineering excellence meets African affordability.
+            Italian engineering meets exceptional value.
             Empower your business with world-class equipment trusted by
             leading laundries, hotels, and hospitals across the continent.
           </motion.p>

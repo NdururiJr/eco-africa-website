@@ -47,7 +47,7 @@ export default function Footer() {
             </div>
             <p className="text-gray-400 text-sm leading-relaxed mb-6">
               Africa's trusted supplier of premium Italian laundry and dry-cleaning machines.
-              European engineering excellence meets African affordability.
+              Italian engineering meets exceptional value.
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((social) => {
