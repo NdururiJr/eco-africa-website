@@ -2,7 +2,9 @@ import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 import { z } from "zod";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+function getResendClient() {
+  return new Resend(process.env.RESEND_API_KEY);
+}
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -28,6 +30,7 @@ export async function POST(request: NextRequest) {
     const { name, email, phone, businessType, message } = result.data;
 
     // Send email via Resend
+    const resend = getResendClient();
     const { error } = await resend.emails.send({
       from: "Eco Africa Website <onboarding@resend.dev>",
       to: process.env.CONTACT_EMAIL_TO || "info@ecoafricaindustries.co.ke",
