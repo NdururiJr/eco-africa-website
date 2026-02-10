@@ -28,14 +28,14 @@ const productLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
+    <footer className="bg-linear-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
       {/* Main Footer */}
       <div className="container mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand Column */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2 mb-6">
-              <div className="w-12 h-12 bg-gradient-to-br from-brand-green to-brand-blue rounded-xl flex items-center justify-center">
+              <div className="w-12 h-12 bg-linear-to-br from-brand-green to-brand-blue rounded-xl flex items-center justify-center">
                 <span className="text-white font-bold text-xl">EA</span>
               </div>
               <div className="flex flex-col">
@@ -107,14 +107,14 @@ export default function Footer() {
             <h4 className="text-lg font-semibold mb-6">Contact Us</h4>
             <div className="space-y-4">
               <div className="flex items-start gap-3">
-                <HiLocationMarker className="w-5 h-5 text-brand-green flex-shrink-0 mt-0.5" />
+                <HiLocationMarker className="w-5 h-5 text-brand-green shrink-0 mt-0.5" />
                 <p className="text-gray-400 text-sm">
                   Nairobi, Kenya<br />
                   East Africa
                 </p>
               </div>
               <div className="flex items-center gap-3">
-                <HiPhone className="w-5 h-5 text-brand-green flex-shrink-0" />
+                <HiPhone className="w-5 h-5 text-brand-green shrink-0" />
                 <a
                   href="tel:+254704585410"
                   className="text-gray-400 hover:text-brand-green transition-colors duration-300 text-sm"
@@ -123,7 +123,7 @@ export default function Footer() {
                 </a>
               </div>
               <div className="flex items-center gap-3">
-                <HiMail className="w-5 h-5 text-brand-green flex-shrink-0" />
+                <HiMail className="w-5 h-5 text-brand-green shrink-0" />
                 <a
                   href="mailto:info@ecoafricaindustries.co.ke"
                   className="text-gray-400 hover:text-brand-green transition-colors duration-300 text-sm"
