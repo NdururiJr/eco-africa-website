@@ -165,8 +165,8 @@ export default function Products() {
             Premium Industrial <span className="gradient-text">Equipment</span>
           </h2>
           <p className="text-neutral text-lg max-w-2xl mx-auto">
-            Discover our comprehensive range of commercial laundry and manufacturing
-            equipment designed to maximize efficiency and minimize costs.
+            Discover our comprehensive range of industrial equipment — from packaging
+            and filling machines to mixers, mills, and generators — designed to maximize efficiency.
           </p>
         </ScrollReveal>
 

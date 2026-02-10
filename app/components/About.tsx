@@ -43,7 +43,7 @@ export default function About() {
 
             <ScrollReveal direction="left" delay={0.1}>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 leading-tight">
-                Redefining Laundry Solutions{" "}
+                Redefining Industrial Solutions{" "}
                 <span className="gradient-text">Across Africa</span>
               </h2>
             </ScrollReveal>
@@ -51,7 +51,7 @@ export default function About() {
             <ScrollReveal direction="left" delay={0.2}>
               <p className="text-neutral text-lg leading-relaxed mb-6">
                 At <strong className="text-foreground">Eco Africa Industries Kenya</strong>, we are the continent's
-                leading distributor of world-class Italian laundry and dry-cleaning machines.
+                leading distributor of world-class industrial laundry, manufacturing, and packaging equipment.
                 We are committed to empowering businesses with the perfect blend of
                 <strong className="text-brand-green"> European engineering excellence</strong> and
                 <strong className="text-brand-blue"> exceptional value</strong>.
@@ -60,7 +60,7 @@ export default function About() {
 
             <ScrollReveal direction="left" delay={0.3}>
               <p className="text-neutral text-lg leading-relaxed mb-8">
-                Whether you run a commercial laundry, hotel, hospital, or dry-cleaning enterprise,
+                Whether you run a manufacturing plant, food processing facility, commercial laundry, or packaging operation,
                 our machines are designed to deliver unmatched performance, energy efficiency,
                 and long-term reliability. With a track record of successful installations across
                 multiple countries, we've earned our reputation as the number one choice for

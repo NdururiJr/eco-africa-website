@@ -28,7 +28,7 @@ export default function Hero() {
           >
             <HiShieldCheck className="w-5 h-5 text-brand-green" />
             <span className="text-sm font-medium text-brand-green">
-              Africa's #1 Trusted Supplier of Italian Laundry Equipment
+              Africa's #1 Trusted Supplier of Industrial Equipment
             </span>
           </motion.div>
 
@@ -39,11 +39,11 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 leading-tight"
           >
-            <span className="text-foreground">Premium Italian</span>
+            <span className="text-foreground">Premium Industrial</span>
             <br />
-            <span className="gradient-text">Laundry & Dry-Cleaning</span>
+            <span className="gradient-text">& Manufacturing</span>
             <br />
-            <span className="text-foreground">Machines for Africa</span>
+            <span className="text-foreground">Equipment for Africa</span>
           </motion.h1>
 
           {/* Subheadline */}
@@ -53,9 +53,9 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-lg md:text-xl text-neutral max-w-3xl mx-auto mb-8 leading-relaxed"
           >
-            Italian engineering meets exceptional value.
-            Empower your business with world-class equipment trusted by
-            leading laundries, hotels, and hospitals across the continent.
+            World-class engineering meets exceptional value.
+            Empower your business with industrial equipment trusted by
+            manufacturers, food processors, and businesses across the continent.
           </motion.p>
 
           {/* Stats Row */}

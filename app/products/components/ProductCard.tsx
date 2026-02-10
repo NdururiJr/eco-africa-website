@@ -143,12 +143,18 @@ export default function ProductCard({ product }: ProductCardProps) {
         </div>
 
         {/* CTA - pushed to bottom */}
-        <div className="mt-auto pt-4">
+        <div className="mt-auto pt-4 flex items-center justify-between">
+          <Link
+            href={`/products/${product.id}`}
+            className="inline-flex items-center gap-2 text-brand-blue font-semibold text-sm hover:gap-3 transition-all"
+          >
+            View Details <HiArrowRight className="w-4 h-4" />
+          </Link>
           <Link
             href={contactUrl}
-            className="inline-flex items-center gap-2 text-brand-green font-semibold text-sm group-hover:gap-3 transition-all"
+            className="inline-flex items-center gap-2 text-brand-green font-semibold text-sm hover:gap-3 transition-all"
           >
-            Get a Quote <HiArrowRight className="w-4 h-4" />
+            Get a Quote
           </Link>
         </div>
       </div>

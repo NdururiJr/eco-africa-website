@@ -20,10 +20,12 @@ const quickLinks = [
 ];
 
 const productLinks = [
-  { name: "Washing Machines", href: "#products" },
-  { name: "Dryers", href: "#products" },
-  { name: "Dry Cleaning Machines", href: "#products" },
-  { name: "Ironing Equipment", href: "#products" },
+  { name: "Washing Machines", href: "/products/washing-machines" },
+  { name: "Cartoning Machines", href: "/products/cartoning-machine" },
+  { name: "Filling Machines", href: "/products/filling-machine" },
+  { name: "Hammer Mills", href: "/products/hammer-mill" },
+  { name: "Generators", href: "/products/generator" },
+  { name: "All Products", href: "/products" },
 ];
 
 export default function Footer() {
@@ -46,8 +48,8 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed mb-6">
-              Africa's trusted supplier of premium Italian laundry and dry-cleaning machines.
-              Italian engineering meets exceptional value.
+              Kenya's trusted supplier of premium industrial laundry and manufacturing equipment.
+              World-class engineering meets exceptional value.
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((social) => {

@@ -9,9 +9,14 @@ import SearchBar from "./components/SearchBar";
 import ProductGrid from "./components/ProductGrid";
 import {
   allProducts,
+  laundryProducts,
   type ProductCategory,
   type ManufacturingSubcategory,
 } from "@/lib/productData";
+import ProductCard from "./components/ProductCard";
+
+// Note: metadata export requires a server component, so we use a generateMetadata in layout or head
+// For "use client" pages, metadata is set via the parent layout or a separate metadata file
 
 export default function ProductsPage() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -19,22 +24,18 @@ export default function ProductsPage() {
   const [activeSubcategory, setActiveSubcategory] = useState<ManufacturingSubcategory | "all">("all");
 
   const filteredProducts = useMemo(() => {
-    let products = allProducts;
+    // Main grid shows only manufacturing products (laundry has its own section)
+    let products = allProducts.filter((p) => p.category === "manufacturing");
 
-    // Filter by category
-    if (activeCategory !== "all") {
-      products = products.filter((p) => p.category === activeCategory);
-    }
-
-    // Filter by subcategory (only for manufacturing)
+    // Filter by subcategory
     if (activeCategory === "manufacturing" && activeSubcategory !== "all") {
       products = products.filter((p) => p.subcategory === activeSubcategory);
     }
 
-    // Filter by search query
+    // Filter by search query (searches all products including laundry)
     if (searchQuery) {
       const lowerQuery = searchQuery.toLowerCase();
-      products = products.filter(
+      products = allProducts.filter(
         (p) =>
           p.title.toLowerCase().includes(lowerQuery) ||
           p.features.some((f) => f.toLowerCase().includes(lowerQuery)) ||
@@ -127,6 +128,36 @@ export default function ProductsPage() {
           <ProductGrid products={filteredProducts} />
         </div>
       </section>
+
+      {/* Laundry Equipment Section */}
+      {(activeCategory === "all" || activeCategory === "laundry") && !searchQuery && (
+        <section className="pb-20 px-6">
+          <div className="container mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mb-8"
+            >
+              <span className="inline-block bg-blue-50 text-brand-blue font-semibold text-sm px-4 py-2 rounded-full mb-4">
+                Laundry Equipment
+              </span>
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
+                Premium <span className="gradient-text">Laundry Machines</span>
+              </h2>
+              <p className="text-neutral max-w-2xl">
+                World-class commercial laundry and dry-cleaning machines from leading
+                European manufacturers. Designed for hotels, hospitals, and commercial
+                laundries across East Africa.
+              </p>
+            </motion.div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {laundryProducts.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* CTA Section */}
       <section className="py-16 px-6 bg-linear-to-r from-brand-green/10 to-brand-blue/10">
