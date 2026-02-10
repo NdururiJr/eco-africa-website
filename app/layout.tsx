@@ -8,7 +8,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   verification: {
-    google: "googlea828a7e980218d53",
+    google: "oXwNeIeswdOg3UpRdic3duN-SfV4v24kjd274SKC84Q",
   },
   title: "Eco Africa Industries Kenya | Industrial Laundry & Manufacturing Equipment",
   description: "Kenya's trusted supplier of premium industrial laundry machines, manufacturing equipment, and packaging machinery. Washing machines, dryers, cartoning machines, filling machines, hammer mills & more. Expert installation across East Africa.",
