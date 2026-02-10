@@ -8,7 +8,7 @@ const benefits = [
   {
     icon: HiStar,
     title: "Top-Selling Italian Machines",
-    description: "Trusted by leading laundry and dry-cleaning businesses across Africa. Our machines have earned their reputation through consistent performance.",
+    description: "Trusted by leading manufacturers and businesses across Africa. Our machines have earned their reputation through consistent performance.",
     color: "from-yellow-400 to-orange-500",
   },
   {
@@ -128,7 +128,7 @@ export default function WhyChooseUs() {
             </h3>
             <p className="text-white/90 max-w-2xl mx-auto mb-6">
               Our equipment is engineered to handle high-volume operations while maintaining
-              exceptional wash quality, reduced water consumption, and low maintenance needs.
+              exceptional performance, energy efficiency, and low maintenance needs.
             </p>
             <a
               href="#contact"

@@ -274,7 +274,7 @@ export default function Contact() {
                   whileHover={{ scale: 1.02 }}
                   className="flex items-start gap-4 bg-surface rounded-2xl p-5 hover:shadow-lg transition-all duration-300 group"
                 >
-                  <div className="w-12 h-12 bg-brand-green/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-brand-green group-hover:text-white transition-all duration-300">
+                  <div className="w-12 h-12 bg-brand-green/10 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-brand-green group-hover:text-white transition-all duration-300">
                     <Icon className="w-6 h-6 text-brand-green group-hover:text-white" />
                   </div>
                   <div>
@@ -286,7 +286,7 @@ export default function Contact() {
             })}
 
             {/* Business Hours */}
-            <div className="bg-gradient-to-br from-brand-green to-brand-blue rounded-2xl p-6 text-white">
+            <div className="bg-linear-to-br from-brand-green to-brand-blue rounded-2xl p-6 text-white">
               <div className="flex items-center gap-3 mb-4">
                 <HiClock className="w-6 h-6" />
                 <h4 className="font-semibold text-lg">Business Hours</h4>

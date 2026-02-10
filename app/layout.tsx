@@ -7,21 +7,21 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
-  title: "Eco Africa Industries Kenya | Premium Italian Laundry & Dry-Cleaning Machines",
-  description: "Africa's trusted supplier of premium Italian laundry and dry-cleaning machines. Italian engineering meets exceptional value. Expert installation, unbeatable prices, and energy-efficient solutions.",
-  keywords: "laundry machines Kenya, dry cleaning machines Africa, Italian laundry equipment, commercial washing machines, industrial laundry, Eco Africa Industries",
+  title: "Eco Africa Industries Kenya | Industrial Laundry & Manufacturing Equipment",
+  description: "Kenya's trusted supplier of premium industrial laundry machines, manufacturing equipment, and packaging machinery. Washing machines, dryers, cartoning machines, filling machines, hammer mills & more. Expert installation across East Africa.",
+  keywords: "industrial equipment Kenya, laundry machines Kenya, manufacturing equipment East Africa, cartoning machine, filling machine, hammer mill, packaging machinery Nairobi, Eco Africa Industries",
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://ecoafricaindustries.com"),
   openGraph: {
-    title: "Eco Africa Industries Kenya | Premium Italian Laundry Machines",
-    description: "Africa's leading distributor of world-class Italian laundry and dry-cleaning machines.",
+    title: "Eco Africa Industries Kenya | Industrial Laundry & Manufacturing Equipment",
+    description: "Kenya's leading supplier of industrial laundry machines, manufacturing equipment, and packaging machinery for businesses across East Africa.",
     type: "website",
     locale: "en_KE",
     siteName: "Eco Africa Industries Kenya",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Eco Africa Industries Kenya | Premium Italian Laundry Machines",
-    description: "Africa's leading distributor of world-class Italian laundry and dry-cleaning machines.",
+    title: "Eco Africa Industries Kenya | Industrial Laundry & Manufacturing Equipment",
+    description: "Kenya's leading supplier of industrial laundry machines, manufacturing equipment, and packaging machinery for businesses across East Africa.",
   },
   robots: {
     index: true,
@@ -29,6 +29,15 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "/",
+    languages: {
+      "en-KE": "/",
+    },
+  },
+  other: {
+    "geo.region": "KE",
+    "geo.placename": "Nairobi",
+    "geo.position": "-1.2921;36.8219",
+    "ICBM": "-1.2921, 36.8219",
   },
 };
 
@@ -37,7 +46,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   name: "Eco Africa Industries Kenya",
-  description: "Africa's trusted supplier of premium Italian laundry and dry-cleaning machines.",
+  description: "Kenya's trusted supplier of premium industrial laundry machines, manufacturing equipment, and packaging machinery for businesses across East Africa.",
   url: "https://ecoafricaindustries.com",
   telephone: "+254704585410",
   email: "info@ecoafricaindustries.co.ke",

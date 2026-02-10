@@ -15,20 +15,20 @@ const testimonials = [
     location: "Nairobi, Kenya",
   },
   {
-    name: "James Macharia",
-    role: "Manager",
-    company: "Dr Spotless",
-    content: "We invested in the ADC commercial dryer and it's been a game-changer. The rapid drying and energy efficiency mean we process more loads per day. Eco Africa's installation and training support was exceptional from start to finish.",
+    name: "Peter Otieno",
+    role: "Operations Director",
+    company: "Savanna Foods Ltd",
+    content: "The cartoning and filling machines from Eco Africa have doubled our packaging output. Setup was seamless, and the after-sales support has been outstanding. We're already planning to add a hammer mill to our production line.",
     rating: 5,
     location: "Nairobi, Kenya",
   },
   {
-    name: "Mary Were",
-    role: "CEO",
-    company: "Mama Fua Laundromart",
-    content: "The IMESA washer-extractor with LCD interface makes our operations incredibly smooth. Premium stainless steel build, fast fill and discharge - exactly what a busy laundromat needs. Eco Africa delivered quality Italian machines at the best price.",
+    name: "Amina Hassan",
+    role: "Plant Manager",
+    company: "Highland Processors",
+    content: "We purchased a ribbon mixer and transfer pump for our food processing facility. The build quality is exceptional and the machines handle our high-volume operations without issues. Eco Africa truly understands manufacturing needs in East Africa.",
     rating: 5,
-    location: "Nairobi, Kenya",
+    location: "Mombasa, Kenya",
   },
 ];
 
@@ -55,8 +55,8 @@ export default function Testimonials() {
             What Our <span className="gradient-text">Clients Say</span>
           </h2>
           <p className="text-neutral text-lg max-w-2xl mx-auto">
-            Join thousands of satisfied clients who have transformed their operations
-            with our superior Italian technology.
+            Join hundreds of satisfied clients who have transformed their operations
+            with our premium industrial equipment.
           </p>
         </ScrollReveal>
 

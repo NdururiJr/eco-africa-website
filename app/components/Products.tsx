@@ -3,68 +3,10 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { HiArrowRight } from "react-icons/hi";
 import ScrollReveal from "./ScrollReveal";
-
-interface Slide {
-  image: string;
-  description: string;
-}
-
-interface Product {
-  title: string;
-  slides: Slide[];
-  capacity: string;
-  features: string[];
-  color: string;
-}
-
-const products: Product[] = [
-  {
-    title: "Industrial Washing Machines",
-    slides: [
-      {
-        image: "/products/washing-machine.png",
-        description: "Washer-extractor with intuitive LCD interface, premium stainless steel construction, and fast fill/discharge system for maximum efficiency."
-      },
-      {
-        image: "/products/washing-machine-imesa.png",
-        description: "IMESA - The pinnacle of commercial laundry excellence. European precision engineering built for durability and superior performance."
-      },
-    ],
-    capacity: "10-100 kg",
-    features: ["Programmable cycles", "Low water consumption", "Stainless steel drum", "Energy efficient"],
-    color: "from-blue-500 to-cyan-400",
-  },
-  {
-    title: "Commercial Dryers",
-    slides: [
-      {
-        image: "/products/dryer.png",
-        description: "ADC commercial dryer engineered for rapid, energy-efficient drying. Delivers exceptional throughput with consistent, reliable performance."
-      },
-    ],
-    capacity: "10-80 kg",
-    features: ["Moisture sensors", "Reverse tumble", "Heat recovery", "Quick dry programs"],
-    color: "from-orange-500 to-amber-400",
-  },
-  {
-    title: "Dry Cleaning Machines",
-    slides: [
-      {
-        image: "/products/dry-cleaning.png",
-        description: "State-of-the-art dry cleaning equipment using eco-friendly solvents. Ideal for delicate fabrics."
-      },
-      {
-        image: "/products/washing-machine 3.png",
-        description: "REALSTAR dry-cleaning system - engineered for maximum efficiency with gentle, powerful cleaning that keeps garments looking their best."
-      },
-    ],
-    capacity: "8-40 kg",
-    features: ["Eco-friendly solvents", "Gentle on fabrics", "Self-cleaning", "Low emissions"],
-    color: "from-purple-500 to-violet-400",
-  },
-];
+import { getFeaturedProducts, type Product } from "@/lib/productData";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -89,19 +31,19 @@ const itemVariants = {
 
 function ProductCard({ product }: { product: Product }) {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const hasMultipleSlides = product.slides.length > 1;
+  const hasMultipleSlides = product.variants.length > 1;
 
   useEffect(() => {
     if (!hasMultipleSlides) return;
 
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % product.slides.length);
+      setCurrentSlide((prev) => (prev + 1) % product.variants.length);
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [hasMultipleSlides, product.slides.length]);
+  }, [hasMultipleSlides, product.variants.length]);
 
-  const currentSlideData = product.slides[currentSlide];
+  const currentVariant = product.variants[currentSlide];
 
   return (
     <motion.div
@@ -121,7 +63,7 @@ function ProductCard({ product }: { product: Product }) {
             className="absolute inset-0"
           >
             <Image
-              src={currentSlideData.image}
+              src={currentVariant.image}
               alt={product.title}
               fill
               className="object-contain group-hover:scale-105 transition-transform duration-500"
@@ -130,16 +72,27 @@ function ProductCard({ product }: { product: Product }) {
         </AnimatePresence>
 
         {/* Capacity Badge */}
-        <div className="absolute bottom-3 left-3 z-10">
-          <span className={`text-sm font-medium text-white bg-gradient-to-r ${product.color} px-3 py-1 rounded-full shadow-lg`}>
-            {product.capacity}
-          </span>
-        </div>
+        {product.capacity && (
+          <div className="absolute bottom-3 left-3 z-10">
+            <span className={`text-sm font-medium text-white bg-linear-to-r ${product.color} px-3 py-1 rounded-full shadow-lg`}>
+              {product.capacity}
+            </span>
+          </div>
+        )}
+
+        {/* Category Badge (for manufacturing products) */}
+        {!product.capacity && (
+          <div className="absolute bottom-3 left-3 z-10">
+            <span className={`text-sm font-medium text-white bg-linear-to-r ${product.color} px-3 py-1 rounded-full shadow-lg`}>
+              {product.category === "manufacturing" ? "Manufacturing" : "Laundry"}
+            </span>
+          </div>
+        )}
 
         {/* Dot Indicators */}
         {hasMultipleSlides && (
           <div className="absolute bottom-3 right-3 z-10 flex gap-1.5">
-            {product.slides.map((_, idx) => (
+            {product.variants.map((_, idx) => (
               <button
                 key={idx}
                 onClick={() => setCurrentSlide(idx)}
@@ -169,13 +122,13 @@ function ProductCard({ product }: { product: Product }) {
             transition={{ duration: 0.3 }}
             className="text-neutral text-sm mb-4 leading-relaxed min-h-[60px]"
           >
-            {currentSlideData.description}
+            {currentVariant.description}
           </motion.p>
         </AnimatePresence>
 
         {/* Features */}
         <div className="flex flex-wrap gap-2 mb-4">
-          {product.features.map((feature, idx) => (
+          {product.features.slice(0, 4).map((feature, idx) => (
             <span
               key={idx}
               className="text-xs bg-surface text-neutral px-3 py-1 rounded-full"
@@ -198,6 +151,8 @@ function ProductCard({ product }: { product: Product }) {
 }
 
 export default function Products() {
+  const featuredProducts = getFeaturedProducts();
+
   return (
     <section id="products" className="py-20 bg-white/80 scroll-mt-20">
       <div className="container mx-auto px-6">
@@ -207,15 +162,15 @@ export default function Products() {
             Our Products
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            Premium Italian <span className="gradient-text">Laundry Equipment</span>
+            Premium Industrial <span className="gradient-text">Equipment</span>
           </h2>
           <p className="text-neutral text-lg max-w-2xl mx-auto">
-            Discover our comprehensive range of commercial and industrial laundry
-            solutions designed to maximize efficiency and minimize costs.
+            Discover our comprehensive range of industrial equipment — from packaging
+            and filling machines to mixers, mills, and generators — designed to maximize efficiency.
           </p>
         </ScrollReveal>
 
-        {/* Products Grid */}
+        {/* Featured Products Grid */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -223,10 +178,21 @@ export default function Products() {
           viewport={{ once: true }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {products.map((product) => (
-            <ProductCard key={product.title} product={product} />
+          {featuredProducts.slice(0, 6).map((product) => (
+            <ProductCard key={product.id} product={product} />
           ))}
         </motion.div>
+
+        {/* View All Products Button */}
+        <ScrollReveal direction="up" delay={0.2} className="text-center mt-12">
+          <Link
+            href="/products"
+            className="inline-flex items-center gap-3 bg-linear-to-r from-brand-green to-brand-blue text-white font-semibold px-8 py-4 rounded-full hover:shadow-lg hover:scale-105 transition-all"
+          >
+            View All Products
+            <HiArrowRight className="w-5 h-5" />
+          </Link>
+        </ScrollReveal>
 
         {/* Industries Served */}
         <ScrollReveal direction="up" delay={0.3} className="mt-20">
@@ -239,9 +205,9 @@ export default function Products() {
               { name: "Hotels & Resorts", icon: "🏨" },
               { name: "Hospitals", icon: "🏥" },
               { name: "Commercial Laundries", icon: "🧺" },
-              { name: "Dry Cleaners", icon: "👔" },
-              { name: "Spas & Gyms", icon: "💆" },
-              { name: "Schools", icon: "🎓" },
+              { name: "Manufacturing Plants", icon: "🏭" },
+              { name: "Food Processing", icon: "🍽️" },
+              { name: "Pharmaceutical", icon: "💊" },
             ].map((industry) => (
               <div
                 key={industry.name}

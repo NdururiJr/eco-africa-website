@@ -7,11 +7,11 @@ import { HiMenu, HiX, HiPhone } from "react-icons/hi";
 
 const navItems = [
   { name: "Home", href: "/" },
-  { name: "Products", href: "#products" },
-  { name: "Why Choose Us", href: "#why-us" },
-  { name: "About", href: "#about" },
-  { name: "Testimonials", href: "#testimonials" },
-  { name: "Contact", href: "#contact" },
+  { name: "Products", href: "/products" },
+  { name: "Why Choose Us", href: "/#why-us" },
+  { name: "About", href: "/#about" },
+  { name: "Testimonials", href: "/#testimonials" },
+  { name: "Contact", href: "/#contact" },
 ];
 
 export default function Header() {
