@@ -123,7 +123,7 @@ export const manufacturingProducts: Product[] = [
         description: "Industrial ribbon mixer for uniform blending of dry powders and granules. Ideal for food, chemical, and pharmaceutical applications."
       },
       {
-        image: "/New Images/Picture29.png",
+        image: "/Refined images/Whisk_de6d736ef192ff9b6974bf7a2870c5e8eg.png",
         description: "Heavy-duty ribbon mixer with enhanced capacity for large-scale production. Features easy-clean design and variable speed control."
       },
     ],
